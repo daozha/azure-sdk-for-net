@@ -295,7 +295,7 @@ namespace Microsoft.AzureStack.Management.Backup.Admin
             BackupLocations = new BackupLocationsOperations(this);
             Backups = new BackupsOperations(this);
             BaseUri = new System.Uri("https://adminmanagement.local.azurestack.external");
-            ApiVersion = "2016-05-01";
+            ApiVersion = "2018-07-19";
             AcceptLanguage = "en-US";
             LongRunningOperationRetryTimeout = 30;
             GenerateClientRequestId = true;
