@@ -15,6 +15,8 @@ namespace Backup.Tests
 
         private void ValidateBackups(Backup backup) {
             Assert.NotNull(backup);
+            Assert.NotNull(backup.BackupId);
+            Assert.NotNull(backup.EncryptionCertThumbprint);
         }
 
         private void AssertSame(Backup expected, Backup found) {

@@ -47,7 +47,7 @@ namespace Backup.Tests
                 // Location properties
                 Assert.Equal(expected.AvailableCapacity, given.AvailableCapacity);
                 Assert.Equal(expected.BackupFrequencyInHours, given.BackupFrequencyInHours);
-                Assert.Equal(expected.EncryptionKeyBase64, given.EncryptionKeyBase64);
+                Assert.Equal(expected.EncryptionCertBase64, given.EncryptionCertBase64);
                 Assert.Equal(expected.IsBackupSchedulerEnabled, given.IsBackupSchedulerEnabled);
                 Assert.Equal(expected.LastBackupTime, given.LastBackupTime);
                 Assert.Equal(expected.NextBackupTime, given.NextBackupTime);
@@ -106,7 +106,7 @@ namespace Backup.Tests
                 backupLocation.Path = @"\\su1fileserver\SU1_Infrastructure_2\BackupStore";
                 backupLocation.UserName = @"azurestack\azurestackadmin";
                 backupLocation.Password = "password";
-                backupLocation.EncryptionKeyBase64 = "Q09WR3dOUEtia0VFeFZFbGdqVXFySm9TbEtxaHNNZ2VxQkdzUUZaVGRCbWtpbHplR2N3Z2hmR05wY2lqTElIbw==";
+                backupLocation.EncryptionCertBase64 = @"MIIDPzCCAiegAwIBAgIQLeqM7fek06pOGOJ+fU/bfDANBgkqhkiG9w0BAQsFADAhMR8wHQYDVQQDDBZ3d3cuaGFoYS5ub3Rzb211Y2guY29tMB4XDTE4MDgyODA2MzcyMVoXDTE5MDgyODA2NTcyMVowITEfMB0GA1UEAwwWd3d3LmhhaGEubm90c29tdWNoLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANqODsU5P1j257arMxu3KEFmmW5swahCOgmoyd3EBsnWwTfdOD6OiAep/ubLpjsmWRlzroTBPTnLbZVC6OxNsvdGQx30EeOfGF9JBd7xbhXYeT668GwPuTlVBeDYOSO4qbnHsLJSvoxHkaMEiq6TqrIgnmr/WRG1Kd4iZ+goSth3A+Eck1KpaQ1r1KxSWazNChPU6gQ6+/Slhxydse7mMsbSCJkzPeZ5YppmUBbbk3GOQj/2+aLMYCyPe2kosMZFr37owRP6bL7hKXyyUBUyQWQTau/fMQ369WJO9wWdYb+z5vQbgZV81qeXcJWu6H+VkL1qNrMfPuh6ET5wM5ZDU80CAwEAAaNzMHEwDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAhBgNVHREEGjAYghZ3d3cuaGFoYS5ub3Rzb211Y2guY29tMB0GA1UdDgQWBBRh/K5ZaNGyX406dYi0U5rrKaguQjANBgkqhkiG9w0BAQsFAAOCAQEAR4EbToyzUSZHz/Q4aajSyrIukcqJr7IiWs+uDVuqEAUqb6BD5wbkNMvZlSmahLPGm2bXnuboB6W4xEctph1bMVx/up7G3p8aKM4kC/34wBOJCIlJqp9MCUW9zDDR5+BOiS2N1gDgqdBKDFcPjUC9bd7UM6xLL6T1EL5tka1UF36YuHlntfWUGsfWdaM0iC6eG4H2WVx7jhuRGYkiaLJ1v7BVqgXSUV4kiUPTC6T6UuGp7Exkoy6v4+4e1Aj6yCHib70lvSGM+i06j+AFt+tMmEprOgOglC/ZjyKuN3qm7Dt21IDf9BHf5eOtPXTQ4foN55qHJ7qhzGQOje5P5jUrfg==";
                 backupLocation.IsBackupSchedulerEnabled = false;
                 backupLocation.BackupFrequencyInHours = 10;
                 backupLocation.BackupRetentionPeriodInDays = 6;
@@ -117,14 +117,14 @@ namespace Backup.Tests
                 result.Path = null;
                 result.UserName = null;
                 result.Password = null;
-                result.EncryptionKeyBase64 = null;
+                result.EncryptionCertBase64 = null;
 
                 result = client.BackupLocations.Update(ResourceGroupName, "local", result);
 
                 Assert.Equal(result.Path, backupLocation.Path);
                 Assert.Equal(result.UserName, backupLocation.UserName);
                 Assert.Null(result.Password);
-                Assert.Null(result.EncryptionKeyBase64);
+                Assert.Null(result.EncryptionCertBase64);
                 Assert.Equal(result.IsBackupSchedulerEnabled, backupLocation.IsBackupSchedulerEnabled);
                 Assert.Equal(result.BackupFrequencyInHours, backupLocation.BackupFrequencyInHours);
                 Assert.Equal(result.BackupRetentionPeriodInDays, backupLocation.BackupRetentionPeriodInDays);
