@@ -1,1 +1,1 @@
-Start-AutoRestCodeGeneration -ResourceProvider "azsadmin/resource-manager/backup" -AutoRestVersion "latest" -SdkRootDirectory $PSScriptRoot
+Start-AutoRestCodeGeneration -ResourceProvider "azsadmin/resource-manager/backup" -AutoRestVersion "latest" -SdkRootDirectory $PSScriptRoot -SpecsRepoFork "daozha" -SpecsRepoBranch "certwrap_restore" -ConfigFileTag "package-2018-09-01"

@@ -19,9 +19,9 @@ namespace Microsoft.AzureStack.Management.Backup.Admin
           {
               return new Tuple<string, string, string>[]
               {
-                new Tuple<string, string, string>("Backup.Admin", "BackupLocations", "2016-05-01"),
-                new Tuple<string, string, string>("Backup.Admin", "Backups", "2016-05-01"),
-                new Tuple<string, string, string>("Backup.Admin", "Operations", "2016-05-01"),
+                new Tuple<string, string, string>("Backup.Admin", "BackupLocations", "2018-09-01"),
+                new Tuple<string, string, string>("Backup.Admin", "Backups", "2018-09-01"),
+                new Tuple<string, string, string>("Backup.Admin", "Operations", "2018-09-01"),
               }.AsEnumerable();
           }
       }
